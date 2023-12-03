@@ -1,0 +1,9 @@
+#!/bin/sh
+dunst &
+slstatus &
+xrandr --output DP-2 --mode 3440x1440 --rate 144 &
+setxkbmap de &
+feh --bg-fill ~/suless/dwm/wallpapers/AlternateRani.jpg &
+picom --config ~/.config/picom/picom.conf &
+flameshot &
+exec dwm
