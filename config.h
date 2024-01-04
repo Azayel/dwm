@@ -116,7 +116,7 @@ static const Key keys[] = {
   { MODKEY|ShiftMask, 	 	XK_p,      spawn,          {.v = mediapausecmd }},
   { MODKEY|ShiftMask,  		XK_Right,  spawn,          {.v = medianextcmd }},
 	{ MODKEY|ShiftMask,		XK_l,	   spawn,  {.v = lockscreencmd}},
-	{               0,    XK_Print, spawn, {.v = screenshotcommand}},
+	{ MODKEY|ShiftMask,   XK_g, spawn, {.v = screenshotcommand}},
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
