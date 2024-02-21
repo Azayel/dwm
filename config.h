@@ -1,8 +1,8 @@
 /* See LICENSE file for copyright and license details. */
 #include <X11/XF86keysym.h>
 /* appearance */
-static const unsigned int borderpx  = 3;        /* border pixel of windows */
-static const unsigned int gappx     = 15;        /* gaps between windows */
+static const unsigned int borderpx  = 4;        /* border pixel of windows */
+static const unsigned int gappx     = 18;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -17,15 +17,22 @@ static const char col_cyan[]        = "#005577";
 static const unsigned int baralpha = 0xd0;
 static const unsigned int borderalpha = OPAQUE;
 //MY ADDED COLORS
-static const char col_magenta[]	    = "#581845"; 
-static const char col_maroon[]	    = "#d699ff";
-static const char col_darkpurple[] = "#660033";
+static const char col_magenta[]	    = "#581845";  // Border selected window
+static const char col_maroon[]	    = "#d699ff";  // Selected and main bar color
+static const char col_darkpurple[] = "#A24857";   // Numbers in window unselected 
 static const char col_dark[] = "#0d001a";
+
+//ELDEN RING DLC COLOR PALLETE
+static const char col_Night[] = "#0B0D0B";
+static const char col_Rufous[] = "#AB2C0C";
+static const char col_Orange[] = "#9C4522";
+static const char col_Gold[] = "#DA9100";
+
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_darkpurple, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_dark, col_maroon,  col_magenta  },
+	[SchemeNorm] = { col_Rufous, col_Night, col_gray2 },
+	[SchemeSel]  = { col_Gold, col_Night,  col_Orange  },
 };
 
 static const unsigned int alphas[][3] = {
