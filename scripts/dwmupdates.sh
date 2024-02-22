@@ -15,7 +15,8 @@ if [ -e "$last_update_file" ]; then
     last_update_minute=$(cat "$last_update_file")
 
     # Calculate the difference in minutes
-    time_difference=$((current_minute - last_update_minute))
+    #time_difference=$((current_minute - last_update_minute))
+    time_difference=$(( (current_minute - last_update_minute + 60) % 60 ))
 
     # Check if the difference is greater than or equal to the update interval
     if [ "$time_difference" -ge "$update_interval" ]; then
@@ -23,12 +24,11 @@ if [ -e "$last_update_file" ]; then
         updatesarch="$(checkupdates 2> /dev/null | wc -l)"
         updatesaur="$(yay -Qum 2> /dev/null | wc -l)"
         updates=$(("$updatesarch" + "$updatesaur"))
-        icon="🛠️"
+        icon="󰮯"
         echo "$updates" > "$last_update_file_amount"
 
         # Update the last update time in the file
         echo "$current_minute" > "$last_update_file"
-        
         printf "%s %s \\n"  "$icon" "$updates"
     else
       icon="󰮯"
