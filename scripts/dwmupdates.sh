@@ -13,6 +13,10 @@ current_minute=$(date +%M)
 if [ -e "$last_update_file" ]; then
     # Read the last update time from the file
     last_update_minute=$(cat "$last_update_file")
+    
+    # Ensure numerical values
+    last_update_minute=$((10#$last_update_minute))
+    current_minute=$((10#$current_minute))
 
     # Calculate the difference in minutes
     #time_difference=$((current_minute - last_update_minute))
