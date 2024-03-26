@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Set the interval for updates (in minutes)
-update_interval=2
+update_interval=5
 
 # File to store the last update time
 last_update_file="/tmp/last_update_time"
@@ -26,10 +26,10 @@ if [ -e "$last_update_file" ]; then
     if [ "$time_difference" -ge "$update_interval" ]; then
         # Execute the updates
         updatesarch="$(checkupdates 2> /dev/null | wc -l)"
-        updatesaur="$(yay -Qum 2> /dev/null | wc -l)"
+        updatesaur="$(paru -Qum 2> /dev/null | wc -l)"
         updates=$(("$updatesarch" + "$updatesaur"))
         icon="󰮯"
-        echo "$updates" > "$last_update_file_amount"
+        echo "$icon $updates" > "$last_update_file_amount"
 
         # Update the last update time in the file
         echo "$current_minute" > "$last_update_file"
@@ -40,8 +40,9 @@ if [ -e "$last_update_file" ]; then
       printf "%s %s \\n"  "$icon" "$update_amount"
     fi
 else
+    icon="󰮯"
     # If the file doesn't exist, create it and store the current minute
     echo "$current_minute" > "$last_update_file"
-    echo "0" > "$last_update_file_amount" 
+    echo "$icon 0" > "$last_update_file_amount" 
 fi
 
